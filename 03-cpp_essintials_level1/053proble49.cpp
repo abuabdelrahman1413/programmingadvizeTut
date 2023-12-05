@@ -3,7 +3,10 @@ using namespace std;
 
 int main()
 {
-    short ATMPin;
+ int  n = 1;
+  while ( n <= 3)
+  {
+      short ATMPin;
     int Balnce = 75000;
 
     cout << "Enter your ATM Pin: " << endl;
@@ -13,4 +16,8 @@ int main()
         cout << Balnce << " $\n";
     else    
         cout << "Invalid ATM pin\n";
+    n++;
+  }
+  cout << "You try 3 time we suspend your Account\n";
+
 }

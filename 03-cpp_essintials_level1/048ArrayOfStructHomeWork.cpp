@@ -31,19 +31,29 @@ void PrintInfo (stPersonalInfo Info)
     cout << Info.Phone << endl;
     cout << "\n***************************************************\n";
 }
-void ReadInfoArray (stPersonalInfo person[2])
+void ReadInfoArray (stPersonalInfo person[100], int &n)
 {
-    ReadInfo(person[0]);
-    ReadInfo(person[1]);
+    int i = 0;
+    cout << "Enter number of persons: " << endl;
+    cin >> n;
+    
+    for ( i; i <= n-1; i++){
+         cout << "Please enter person's " << i+1 << " info:" << endl;
+         ReadInfo(person[i]);
+    }
 }
-void PrintInfoArray (stPersonalInfo person[2])
+void PrintInfoArray (stPersonalInfo person[100], int n)
 {
-    PrintInfo(person[0]);
-    PrintInfo(person[1]);
+   int i = 0;
+    for ( i; i <= n-1; i++){
+        cout <<"person's " << i+1 << " info";
+         PrintInfo(person[i]);
+    }
 }
 int main()
 {
-    stPersonalInfo person[2];
-    ReadInfoArray(person);
-    PrintInfoArray(person);
+    stPersonalInfo person[100];
+    int n = 0;
+    ReadInfoArray(person,n);
+    PrintInfoArray(person,n);
 }
