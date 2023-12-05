@@ -1,5 +1,6 @@
 #include <iostream>
 using namespace std;
+enum en
 
 int main()
 {
