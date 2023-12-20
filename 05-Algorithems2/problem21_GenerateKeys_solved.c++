@@ -39,33 +39,41 @@ char GetRandomCharecter(enCharType CharType)
 	}
 }
 
-void GenerateKeys (int Number)
+string GenerateWord(enCharType CharType, int Length)
 {
-	for (int i = 1; i <= Number; i++)
+	string Word = "";
+	for (int i = 1; i<=Length; i++)
+		Word += GetRandomCharecter(CharType);
+	return Word;
+}
+
+string GenerateKey ()
+{
+	string Key = "";
+	Key += GenerateWord(enCharType::CapitalLetter,4) + "-";
+	Key += GenerateWord(enCharType::CapitalLetter,4) + "-";
+	Key += GenerateWord(enCharType::CapitalLetter,4) + "-";
+	Key += GenerateWord(enCharType::CapitalLetter,4) ;
+
+	return Key;
+
+}
+
+void GenerateKeys(int NumberOfKeys)
+{
+	for(int i = 1; i <= NumberOfKeys; i++)
 	{
-		cout << "Key[" << i << "]: ";
-		for(int i = 1; i <=4; i++)
-		{	
-			for (int j = 1; j <= 4; j++)
-			{	
-				cout<< GetRandomCharecter(enCharType::CapitalLetter);
-			}
-
-			if ( i != 4)
-			{
-				cout << "-";
-			}
-		}
-
-		cout << endl;
+		cout <<"Key [" << i << "] :";
+		cout << GenerateKey() << endl;
 	}
 }
+
+
 
 int main()
 {
 	srand ((unsigned) time (NULL));
-	int Number = ReadPositiveNumber("Please Enter Number of Keys: ");
-	GenerateKeys( Number);
 
+	GenerateKeys(ReadPositiveNumber("Please Enter Number of Keys: "));
 	return 0;
 }
