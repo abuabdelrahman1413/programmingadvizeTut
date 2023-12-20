@@ -2,31 +2,31 @@
 #include <iostream>
 using namespace std;
 
-int ReadPositiveNumber(string Mesaage)
+int readpositivenumber(string mesaage)
 {
-    int Number;
-    cout <<Mesaage;
-    cin>>Number;
+    int number;
+    cout <<mesaage;
+    cin>>number;
 	cout << endl;
-    return Number;
+    return number;
 }
 
-void PrintNumberPattern(int Number)
+void printnumberpattern(int number)
 {	cout << endl;
 	int n=0;
-	while (Number != 0) //can use for(int i =Number; i>=1; i--)
+	while (number != 0) //can use for(int i =number; i>=1; i--)
 	{
 		n++;
 		for (int i = 1; i <= n; i++)
 		{
 			cout << n;
 		}
-		Number--;
+		number--;
 		cout << endl;
 	}
 }
 
 int main()
 {
-	PrintNumberPattern(ReadPositiveNumber("Please Enter a Number: "));
+	printnumberpattern(readpositivenumber("please enter a number: "));
 }
