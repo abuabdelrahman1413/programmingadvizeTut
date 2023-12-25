@@ -38,17 +38,17 @@ void PrintArray (int Array[100], int LengthOfArray)
 	cout << "\n";
 }
 
-int MaxElementInArray(int Array[100], int LengthOfArray)
+int NumberIndex(int Array[100],int NumberToCheck,int LengthOfArray)
 {
-	int Max = Array[0];
-	for(int i = 0; i <= LengthOfArray -1; i++)
+	int i;
+
+	for(i = 0; i <= LengthOfArray -1; i++)
 	{
-		if (Max < Array[i])
-		{
-			Max = Array[i];
-		}
+		if (NumberToCheck == Array[i])
+			return i;
 	}
-	return Max;
+
+	return -1;
 }
 
 int main()
@@ -56,13 +56,29 @@ int main()
 	srand ((unsigned) time (NULL));
 	int Array[100];
 	int LengthOfArray;
-	int NumberToCheck;
+	int NumberToSearchFor;
+
 
 	FillArrayWithRandomNumbers(Array, LengthOfArray);
+
 	cout << "Array Elements: ";
 	PrintArray(Array, LengthOfArray);
 	cout << endl;
-	cout << "Max " << MaxElementInArray(Array, LengthOfArray) << endl;;
-	return 0;
+
+	NumberToSearchFor = ReadPositiveNumber("Please enter number to search for: ");
+ 
+	int Number = NumberIndex(Array, NumberToSearchFor, LengthOfArray);
+
+	cout << "Number your Looking for is: " << NumberToSearchFor;
+	cout << endl;
+	if(Number == -1)
+		cout << "Number not found :-(\n";
+	else
+	{
+		cout << "The Number found at position: " << Number; 
+		cout << endl;
+		cout << "The Number found  it's order: " << Number+1; 
+		cout << endl;
+	}
 
 }

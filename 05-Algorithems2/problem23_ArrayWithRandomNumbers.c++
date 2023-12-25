@@ -20,7 +20,7 @@ int RandomNumber (int From, int To)
 	return (rand()%(To - From +1) + From);
 }
 
-void ReadArray (int Array[100], int &LengthOfArray)
+void FillArrayWithRandomNumbers(int Array[100], int &LengthOfArray)
 {
 	LengthOfArray = ReadPositiveNumber("Please Enter Length of Array: ");
 	for(int i = 0; i <= LengthOfArray - 1; i++)
@@ -45,7 +45,7 @@ int main()
 	int LengthOfArray;
 	int NumberToCheck;
 
-	ReadArray(Array, LengthOfArray);
+	FillArrayWithRandomNumbers(Array, LengthOfArray);
 	cout << "Array Elements: ";
 	PrintArray(Array, LengthOfArray);
 	return 0;
